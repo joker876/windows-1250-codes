@@ -128,7 +128,7 @@ const CHAR_MAP: [string, number][] = [
 export function charToCode(char: string): number {
     //if char is standard ascii, return the code
     let charCode = char.charCodeAt(0);
-    if (charCode < 128) return charCode;
+    if (charCode < 128 && charCode >= 0) return charCode;
     //else, find the character in the map
     //if not found, return -1
     char = char.charAt(0);
@@ -136,7 +136,7 @@ export function charToCode(char: string): number {
 }
 export function codeToChar(code: number): string {
     //if code is standard ascii, return the char
-    if (code < 128) return String.fromCharCode(code);
+    if (code < 128 && code >= 0) return String.fromCharCode(code);
     //else, find the code in the map
     //if not found, return the placeholder character
     return CHAR_MAP.find(v => v[1] == code)?.[0] ?? CHAR_MAP[0][0];
