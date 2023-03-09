@@ -125,6 +125,12 @@ const CHAR_MAP: [string, number][] = [
     ['˙', 0xFf ],
 ];
 
+/**
+ * Converts a character to its Windows-1250 encoding code.
+ *
+ * @param {string} char The character to convert.
+ * @returns {number} The Windows-1250 encoding code for the character, or -1 if the character is not supported by Windows-1250.
+ */
 export function charToCode(char: string): number {
     //if char is standard ascii, return the code
     let charCode = char.charCodeAt(0);
@@ -134,6 +140,13 @@ export function charToCode(char: string): number {
     char = char.charAt(0);
     return CHAR_MAP.find(v => v[0] == char)?.[1] ?? -1;
 }
+
+/**
+ * Converts a Windows-1250 encoding code to its corresponding character.
+ *
+ * @param {number} code The Windows-1250 encoding code to convert.
+ * @returns {string} The character corresponding to the Windows-1250 encoding code, or a placeholder character if the code is not supported by Windows-1250.
+ */
 export function codeToChar(code: number): string {
     //if code is standard ascii, return the char
     if (code < 128 && code >= 0) return String.fromCharCode(code);
