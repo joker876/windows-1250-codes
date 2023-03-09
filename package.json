@@ -1,6 +1,6 @@
 {
   "name": "windows-1250-codes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert characters to windows-1250 codes and back.",
   "main": "src/index.js",
   "type": "module",
